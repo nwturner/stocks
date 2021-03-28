@@ -53,7 +53,7 @@ The project includes three files:
 2. Run `storable.py` with the configuration file name passed as a command line argument. e.g. `>python storable.py param.cfg`
 
 # Example
-Here is an example to demonstrat how to run the Python script and how the tables will look after generating the report for the below
+Here is an example to demonstrate how to run the Python script and how the tables will look after generating the report for the below
 dates:
 * 2020-10-01
 * 2020-11-02
