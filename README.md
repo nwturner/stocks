@@ -40,7 +40,8 @@ The `portfolio` table contains one record for each trade and includes the quanti
 ## Project Files
 The project includes three files:
 
-1. `storable.py` populates the quotes, report_lines, and report_summary tables with price and quantity data based on the given date and the holdings in the portfolio on that day.
+1. `storable.py` populates the quotes, report_lines, and report_summary tables with price and quantity data based on the given date, the transactions which occurred on or before that day, and the quantity of shares in the portfolio at the end of that day.
+* Note: Not all days are trading days due to weekends, holidays, etc. The script will throw an error for any date which is not a valid trading day.
 
 2. `param.cfg` is a configuration file that contains the path to the SQLite database and a list of dates for which the price and quantity data should be generated.
 
