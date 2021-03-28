@@ -16,9 +16,13 @@ The `stocks` table contains one record for each different stock symbol that is b
 
 ![image](https://user-images.githubusercontent.com/66182966/112742885-3db38000-8f58-11eb-9762-73852338769d.png)
 
+* Cash in the portfolio is represented by the symbol ‘$$$$’
+
 The `portfolio` table contains one record for each trade and includes the quantity of shares that were either bought or sold, the date of the transaction, and the stock ID that was traded.
 
 ![image](https://user-images.githubusercontent.com/66182966/112742864-f927e480-8f57-11eb-816f-709e4fd97096.png)
+
+* The portfolio table can contain negative share counts if someone is selling a stock or spending cash.
 
 ## Tables in the SQLite Database
 `stocks` - the holdings in the portfolio for which price and quantity data is being tracked
