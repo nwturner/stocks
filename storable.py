@@ -51,7 +51,7 @@ def update_quotes(conn,start_date,end_date):
         
         # Inserting the daily quote information into the quotes table
         
-        insert_values = (start_date, 
+        insert_values = (start_date.date(), 
                          holding[0], 
                          round(float(data['Open']),2), 
                          round(float(data['High']),2),
@@ -106,13 +106,13 @@ def update_quotes(conn,start_date,end_date):
     
     # Verifying that records have been inserted for the specified date
     
-    cur.execute("""SELECT COUNT(1) FROM quotes WHERE date = ?""",(report_date,))
+    cur.execute("""SELECT COUNT(1) FROM quotes WHERE date = ?""",(start_date.date(),))
     count = cur.fetchall()[0][0]
     
     if count == 0:
         print("ERROR: No records have been inserted into the quotes table for date{}.".format(count))
     else:            
-        print("{} records have been inserted into quotes table for date {}.".format(count,report_date))
+        print("{} records have been inserted into quotes table for date {}.".format(count,start_date.date()))
         
 def update_report_lines(conn,start_date,end_date):
     """
@@ -137,7 +137,7 @@ def update_report_lines(conn,start_date,end_date):
                     WHERE date <= ?
                     GROUP BY s.symbol,s.name
                         HAVING sum(p.quantity) > 0
-                    ORDER BY s.name asc""",(report_date,))
+                    ORDER BY s.name asc""",(start_date.date(),))
 
     stock_symbol_quantities = cur.fetchall()
 
@@ -153,7 +153,7 @@ def update_report_lines(conn,start_date,end_date):
         # portfolio on the report_date and insert into the report_lines table.
         
         if stock_symbol == '$$$$':
-            insert_values = (start_date,
+            insert_values = (start_date.date(),
                              stock_name,
                              stock_symbol,
                              quantity,
@@ -174,7 +174,7 @@ def update_report_lines(conn,start_date,end_date):
             if len(data) == 0:
                 continue
             
-            insert_values = (report_date,
+            insert_values = (start_date.date(),
                              stock_name,
                              stock_symbol,
                              quantity,
@@ -200,15 +200,15 @@ def update_report_lines(conn,start_date,end_date):
         
     # Verifying that records have been inserted for the specified date    
         
-    cur.execute("""SELECT COUNT(1) FROM report_lines WHERE date = ?""",(report_date,))
+    cur.execute("""SELECT COUNT(1) FROM report_lines WHERE date = ?""",(start_date.date(),))
     count = cur.fetchall()[0][0]
         
     if count == 0:
         print("ERROR: No records have been inserted into the report_lines table for date{}.".format(count))
     else:            
-        print("{} records have been inserted into report_lines table for date {}.".format(count,report_date))
+        print("{} records have been inserted into report_lines table for date {}.".format(count,start_date.date()))
         
-def update_report_summary(conn,report_date):
+def update_report_summary(conn,start_date):
     """
     Populating the report_summary table with the price data for the aggregated holdings in
     the stock portfolio for the given date.
@@ -226,7 +226,7 @@ def update_report_summary(conn,report_date):
                         sum(low_value) as low_value,
                         sum(close_value) as close_value 
                     FROM report_lines
-                    WHERE date = ?""",(report_date,report_date))
+                    WHERE date = ?""",(start_date.date(),start_date.date()))
 
     rows = cur.fetchall()
     
@@ -238,7 +238,7 @@ def update_report_summary(conn,report_date):
     low_value = rows[0][3]
     close_value = rows[0][4]
     
-    insert_values = (report_date,
+    insert_values = (start_date.date(),
                      open_value,
                      high_value,
                      low_value,
@@ -257,13 +257,13 @@ def update_report_summary(conn,report_date):
     
     # Verifying that records have been inserted for the specified date
         
-    cur.execute("""SELECT COUNT(1) FROM report_summary WHERE date = ?""",(report_date,))
+    cur.execute("""SELECT COUNT(1) FROM report_summary WHERE date = ?""",(start_date.date(),))
     count = cur.fetchall()[0][0]
         
     if count == 0:
         print("ERROR: No records have been inserted into the report_summary table for date {}.".format(count))
     else:            
-        print("{} records have been inserted into report_summary table for date {}.".format(count,report_date))
+        print("{} records have been inserted into report_summary table for date {}.".format(count,start_date.date()))
         
 def daily_portfolio_summary(report_date, db_file):
     """
@@ -302,7 +302,7 @@ def daily_portfolio_summary(report_date, db_file):
 
     # Populating the report_sumary table with the quote data for the aggregated holdings in
     # the stock portfolio for the given date
-    update_report_summary(conn,report_date)
+    update_report_summary(conn,start_date)
 
     conn.close()
 
