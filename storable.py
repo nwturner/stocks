@@ -22,11 +22,11 @@ def create_connection(db_file):
 
     return conn
 
-def update_quotes(conn,report_date,start_date,end_date):
+def update_quotes(conn,start_date,end_date):
     """
     Populates the quotes table with the daily price information for the given date.
     :param conn: the Connection object
-    :param date: the date for which we want to generate the portfolio summary
+    :param report_date: the date for which we want to generate the portfolio summary
     :return:
     """
     # Selecting all stock IDs and ticker symbols from the stocks table, excluding cash
@@ -51,7 +51,7 @@ def update_quotes(conn,report_date,start_date,end_date):
         
         # Inserting the daily quote information into the quotes table
         
-        insert_values = (report_date, 
+        insert_values = (start_date, 
                          holding[0], 
                          round(float(data['Open']),2), 
                          round(float(data['High']),2),
@@ -114,7 +114,7 @@ def update_quotes(conn,report_date,start_date,end_date):
     else:            
         print("{} records have been inserted into quotes table for date {}.".format(count,report_date))
         
-def update_report_lines(conn,report_date,start_date,end_date):
+def update_report_lines(conn,start_date,end_date):
     """
     Populates the report_lines table with the aggregated quantity and price data for each holding in the
     portfolio for the given date.
@@ -153,7 +153,7 @@ def update_report_lines(conn,report_date,start_date,end_date):
         # portfolio on the report_date and insert into the report_lines table.
         
         if stock_symbol == '$$$$':
-            insert_values = (report_date,
+            insert_values = (start_date,
                              stock_name,
                              stock_symbol,
                              quantity,
@@ -210,9 +210,9 @@ def update_report_lines(conn,report_date,start_date,end_date):
         
 def update_report_summary(conn,report_date):
     """
-    Populating the report_sumary table with the price data for the aggregated holdings in
+    Populating the report_summary table with the price data for the aggregated holdings in
     the stock portfolio for the given date.
-    :param date: the date for which we want to generate the portfolio summary
+    :param report_date: the date for which we want to generate the portfolio summary
     :param conn: the Connection object
     :return:
     """
@@ -294,11 +294,11 @@ def daily_portfolio_summary(report_date, db_file):
     
     # Populating the quotes table with the daily quote information for all holdings in the portfolio
     # (except cash) for the given date.
-    update_quotes(conn,report_date,start_date,end_date)
+    update_quotes(conn,start_date,end_date)
 
     # Populating the report_lines table with quanitity and quote data for each holding with quantity > 0 
     # in the portfolio based on the given date
-    update_report_lines(conn,report_date,start_date,end_date)
+    update_report_lines(conn,start_date,end_date)
 
     # Populating the report_sumary table with the quote data for the aggregated holdings in
     # the stock portfolio for the given date
