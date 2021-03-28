@@ -1,5 +1,5 @@
 # Stocks
-This project uses Python and the yfinance library to populate a set of tables in a SQLite database with the price and quantity information for the holdings in an investment portfolio based on a given date and a ledger which contains the quantities of holdings that were either bought or sold and the date of each transaction.
+This project uses Python and the yfinance library to populate a set of tables in an SQLite database with price and quantity information for the holdings in an investment portfolio based on a given date and a ledger which contains the quantities of holdings that were either bought or sold as well as the transaction dates.
 
 ## Steps
 1. Populate the `quotes` table with daily stock quote information for each stock in the portfolio (excluding cash).
@@ -36,14 +36,14 @@ The database contains two tables that are already populated and are used as the 
 ## Project Files
 The project includes three files:
 
-1. `storable.py` generates the price and quantity data for the stock portfolio based on the given date and the holdings in the portfolio on that day.
+1. `storable.py` populates the quotes, report_lines, and report_summary tables with price and quantity data based on the given date and the holdings in the portfolio on that day.
 
 2. `param.cfg` is a configuration file that contains the path to the SQLite database and a list of dates for which the price and quantity data should be generated.
 
-3. `stock_portfolio.sqlite` is an SQLite database file with all of the tables that are used in this project.
+3. `stock_portfolio.sqlite` is an SQLite database file that includes all of the tables that are used in this project.
 
 ## Instructions
 
 1. Edit `param.cfg` to include the path to the SQLite database file and a list of dates for which to generate the report. The dates can be given in YYYY-MM-DD format separated by commas. e.g. DATES=2020-10-01,2020-11-02,2020-12-01
 
-2. Run `storable.py` along with the configuration file name passed as a command line argument. e.g. `> python storable.py param.cfg`
+2. Run `storable.py` with the configuration file name passed as a command line argument. e.g. `> python storable.py param.cfg`
