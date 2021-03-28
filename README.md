@@ -1,5 +1,5 @@
 # Stocks
-This project uses Python and the yfinance library to populate a set of tables containing the price and quantity information for the holdings in an investment portfolio based on a given date and a ledger of the dates and quantities of holdings that were either bought or sold.
+This project uses Python and the yfinance library to populate a set of tables with the price and quantity information for the holdings in an investment portfolio based on a given date and a ledger containing quantities of holdings that were either bought or sold and the date of each transaction.
 
 ## Steps
 1. Populate the quotes table with daily stock quote information for each stock in the portfolio (excluding cash).
