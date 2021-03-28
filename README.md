@@ -3,7 +3,7 @@ This project uses Python and the yfinance library to populate a set of tables wi
 
 ## Steps
 1. Populate the quotes table with daily stock quote information for each stock in the portfolio (excluding cash).
-2. Populate the report_lines table with quanitity and quote data for each holding with quantity > 0 in the portfolio as of the given date.
+2. Populate the report_lines table with quantity and quote data for each holding with quantity > 0 in the portfolio as of the given date.
 3. Populate the report_summary table with the quote data for the aggregated holdings in the stock portfolio for the given date.
 
 ## Project Database
