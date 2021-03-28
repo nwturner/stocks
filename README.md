@@ -1,5 +1,5 @@
 # Stocks
-This project uses Python and the yfinance library to populate a set of tables with the price and quantity information for the holdings in an investment portfolio based on a given date and a ledger containing quantities of holdings that were either bought or sold and the date of each transaction.
+This project uses Python and the yfinance library to populate a set of tables in a SQLite database with the price and quantity information for the holdings in an investment portfolio based on a given date and a ledger containing quantities of holdings that were either bought or sold and the date of each transaction.
 
 ## Steps
 1. Populate the quotes table with daily stock quote information for each stock in the portfolio (excluding cash).
@@ -23,7 +23,7 @@ quotes - daily stock quote information for each stock in the portfolio (excludin
 portfolio - ledger of transactions in the portfolio
 * stock_id (integer), date (date), quantity (numeric)
 
-report_lines - aggregated quanitity and quote data for each holding with quantity > 0 in the portfolio as of the given date
+report_lines - quantity and quote data aggregated for each holding with quantity > 0 in the portfolio as of the given date
 * date (date), stock_name (text), stock_symbol (text), quantity (numeric), open_value (numeric), high_value (numeric), low_value (numeric), close_value (numeric)
 
 report_summary - quote data for all holdings in the entire stock portfolio aggregated for the given date
