@@ -50,7 +50,7 @@ The project includes three files:
 
 1. Edit `param.cfg` to include the path to the SQLite database file and a list of dates for which to generate the report. The dates can be given in YYYY-MM-DD format separated by commas. e.g. DATES=2020-10-01,2020-11-02,2020-12-01
 
-2. Run `storable.py` with the configuration file name passed as a command line argument. e.g. `> python storable.py param.cfg`
+2. Run `storable.py` with the configuration file name passed as a command line argument. e.g. `>python storable.py param.cfg`
 
 # Example
 
