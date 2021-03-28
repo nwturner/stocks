@@ -113,7 +113,7 @@ def update_quotes(conn,start_date,end_date):
     if count == 0:
         print("ERROR: No records have been inserted into the quotes table for date{}.".format(count))
     else:            
-        print("{} records have been inserted into quotes table for date {}.".format(count,start_date.date()))
+        print("{} records have been updated/inserted into quotes table for date {}.".format(count,start_date.date()))
         
 def update_report_lines(conn,start_date,end_date):
     """
@@ -208,7 +208,7 @@ def update_report_lines(conn,start_date,end_date):
     if count == 0:
         print("ERROR: No records have been inserted into the report_lines table for date{}.".format(count))
     else:            
-        print("{} records have been inserted into report_lines table for date {}.".format(count,start_date.date()))
+        print("{} records have been updated/inserted into report_lines table for date {}.".format(count,start_date.date()))
         
 def update_report_summary(conn,start_date):
     """
@@ -265,7 +265,7 @@ def update_report_summary(conn,start_date):
     if count == 0:
         print("ERROR: No records have been inserted into the report_summary table for date {}.".format(count))
     else:            
-        print("{} records have been inserted into report_summary table for date {}.".format(count,start_date.date()))
+        print("{} records have been updated/inserted into report_summary table for date {}.".format(count,start_date.date()))
         
 def daily_portfolio_summary(report_date, db_file):
     """
