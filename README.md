@@ -25,7 +25,7 @@ The `portfolio` table contains one record for each trade and includes the quanti
 * The portfolio table can contain negative share counts if someone is selling a stock or spending cash.
 
 ## Tables in the SQLite Database
-`stocks` - the holdings in the portfolio for which price and quantity data is being tracked
+`stocks` - the holdings in the portfolio for which price and quantity data are being tracked
 * id (integer), name (text), symbol (text)
 
 `quotes` - daily stock quote information for each stock in the portfolio (excluding cash)
