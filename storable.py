@@ -5,6 +5,7 @@ from datetime import date
 from datetime import datetime
 from datetime import timedelta
 import configparser
+import sys
 
 def create_connection(db_file):
     """ 
@@ -308,7 +309,7 @@ def daily_portfolio_summary(report_date, db_file):
 
 def main():
     config = configparser.ConfigParser()
-    config.read('path.cfg')
+    config.read(sys.argv[1])
     
     db_file = config['PARAMETERS']['DB_PATH']
     report_dates = config['PARAMETERS']['DATES']
