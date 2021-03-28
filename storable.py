@@ -26,7 +26,8 @@ def update_quotes(conn,start_date,end_date):
     """
     Populates the quotes table with the daily price information for the given date.
     :param conn: the Connection object
-    :param report_date: the date for which we want to generate the portfolio summary
+    :param start_date: the date for which we want to generate the portfolio summary
+    :param end_date: one day after the start date
     :return:
     """
     # Selecting all stock IDs and ticker symbols from the stocks table, excluding cash
@@ -119,7 +120,8 @@ def update_report_lines(conn,start_date,end_date):
     Populates the report_lines table with the aggregated quantity and price data for each holding in the
     portfolio for the given date.
     :param conn: the Connection object
-    :param date: the date for which we want to generate the portfolio summary
+    :param start_date: the date for which we want to generate the portfolio summary
+    :param end_date: one day after the start date
     :return:
     """
     # Selecting the quanitity of each holding in the portfolio (including cash) on the report_date by 
@@ -212,7 +214,7 @@ def update_report_summary(conn,start_date):
     """
     Populating the report_summary table with the price data for the aggregated holdings in
     the stock portfolio for the given date.
-    :param report_date: the date for which we want to generate the portfolio summary
+    :param start_date: the date for which we want to generate the portfolio summary
     :param conn: the Connection object
     :return:
     """
@@ -269,7 +271,7 @@ def daily_portfolio_summary(report_date, db_file):
     """
     Generates the daily investment portfolio summary data based on a specified date and inserts the data
     into the quotes, report_lines, and report_summary tables.
-    :param date: the date for which we want to generate the portfolio summary
+    :param report_date: the date for which we want to generate the portfolio summary
     :param db_file: database file
     :return:
     """
