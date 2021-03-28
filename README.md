@@ -70,7 +70,7 @@ The project includes three files:
 ![image](https://user-images.githubusercontent.com/66182966/112742899-5a4fb800-8f58-11eb-9762-a0a46f7215d0.png)
 
 ## report_lines table
-![image](https://user-images.githubusercontent.com/66182966/112742908-6a679780-8f58-11eb-8c41-01f8581c1de8.png)
+![image](https://user-images.githubusercontent.com/66182966/112743238-21651280-8f5b-11eb-9d40-826e02e4509e.png)
 
 ## report_summary table
-![image](https://user-images.githubusercontent.com/66182966/112742918-7c493a80-8f58-11eb-9c8d-b7f35eb80b67.png)
+![image](https://user-images.githubusercontent.com/66182966/112743246-2fb32e80-8f5b-11eb-9043-b203ef88db67.png)
