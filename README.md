@@ -54,6 +54,9 @@ The project includes three files:
 
 # Example
 
+## Parameter file
+![image](https://user-images.githubusercontent.com/66182966/112743137-49a04180-8f5a-11eb-8998-790761e151d6.png)
+
 ## Running the command
 ![image](https://user-images.githubusercontent.com/66182966/112743074-b404b200-8f59-11eb-8655-679bb77b85eb.png)
 
