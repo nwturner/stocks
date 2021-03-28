@@ -23,7 +23,7 @@ The database contains two tables that are already populated and are used as the 
 `portfolio` - ledger of transactions in the portfolio
 * stock_id (integer), date (date), quantity (numeric)
 
-`report_lines` - quantity and quote data aggregated for each holding with quantity > 0 in the portfolio as of the given date
+`report_lines` - price and quantity data aggregated for each holding with quantity > 0 in the portfolio as of the given date
 * date (date), stock_name (text), stock_symbol (text), quantity (numeric), open_value (numeric), high_value (numeric), low_value (numeric), close_value (numeric)
 
 `report_summary` - quote data for all holdings in the entire stock portfolio aggregated for the given date
@@ -33,8 +33,8 @@ The database contains two tables that are already populated and are used as the 
 ## Project Files
 The project includes three files:
 
-1. `storable.py` generates the quote data for the stock portfolio based on the given date and the holdings in the portfolio on that day.
-2. `param.cfg` is a configuration file that contains the path to the SQLite database and a list of dates for which the quote data should be generated.
+1. `storable.py` generates the price and quantity data for the stock portfolio based on the given date and the holdings in the portfolio on that day.
+2. `param.cfg` is a configuration file that contains the path to the SQLite database and a list of dates for which the price and quantity data should be generated.
 3. `stock_portfolio.sqlite` is an SQLite database file with all of the tables that are used in this project.
 
 ## Instructions
