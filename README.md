@@ -12,9 +12,13 @@ This project uses Python and the yfinance library to populate a set of tables in
 This project uses an SQLite database contained in the file `stock_portfolio.sqlite`.
 The database contains two tables that are already populated and are used as the source for loading the quotes, report_lines, and report_summary tables:
 
-* The `stocks` table contains one record for each different stock symbol that is being tracked in the portfolio.
+The `stocks` table contains one record for each different stock symbol that is being tracked in the portfolio.
 
-* The `portfolio` table contains one record for each trade and includes the quantity of shares that were either bought or sold, the date of the transaction, and the stock ID that was traded.
+* ![image](https://user-images.githubusercontent.com/66182966/112742885-3db38000-8f58-11eb-9762-73852338769d.png)
+
+The `portfolio` table contains one record for each trade and includes the quantity of shares that were either bought or sold, the date of the transaction, and the stock ID that was traded.
+
+* ![image](https://user-images.githubusercontent.com/66182966/112742864-f927e480-8f57-11eb-816f-709e4fd97096.png)
 
 ## Tables in the SQLite Database
 `stocks` - the holdings in the portfolio for which price and quantity data is being tracked
@@ -47,3 +51,23 @@ The project includes three files:
 1. Edit `param.cfg` to include the path to the SQLite database file and a list of dates for which to generate the report. The dates can be given in YYYY-MM-DD format separated by commas. e.g. DATES=2020-10-01,2020-11-02,2020-12-01
 
 2. Run `storable.py` with the configuration file name passed as a command line argument. e.g. `> python storable.py param.cfg`
+
+# Example
+
+## Running the command
+![image](https://user-images.githubusercontent.com/66182966/112743074-b404b200-8f59-11eb-8655-679bb77b85eb.png)
+
+## portfolio table
+![image](https://user-images.githubusercontent.com/66182966/112742864-f927e480-8f57-11eb-816f-709e4fd97096.png)
+
+## stocks table
+![image](https://user-images.githubusercontent.com/66182966/112742885-3db38000-8f58-11eb-9762-73852338769d.png)
+
+## quotes table
+![image](https://user-images.githubusercontent.com/66182966/112742899-5a4fb800-8f58-11eb-9762-a0a46f7215d0.png)
+
+## report_lines table
+![image](https://user-images.githubusercontent.com/66182966/112742908-6a679780-8f58-11eb-8c41-01f8581c1de8.png)
+
+## report_summary table
+![image](https://user-images.githubusercontent.com/66182966/112742918-7c493a80-8f58-11eb-9c8d-b7f35eb80b67.png)
